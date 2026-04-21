@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient"></div>
+    <main class="app-shell desktop-shell">
+      <aside class="icon-rail panel">
+        <div class="rail-stack">
+          <button class="rail-button brand-mark app-logo-button" type="button" data-label="App Logo Placeholder" aria-label="App logo placeholder">
+            <span class="logo-placeholder"></span>
+          </button>
+          <button class="rail-button active" type="button" data-section="notes" data-label="Notes" aria-label="Notes">
+            <span class="rail-icon notes-icon" aria-hidden="true"></span>
+          </button>
+          <button class="rail-button" type="button" data-section="todos" data-label="To Do List" aria-label="To Do List">
+            <span class="rail-icon todos-icon" aria-hidden="true"></span>
+          </button>
+          <button class="rail-button" type="button" data-section="calendar" data-label="Calendar" aria-label="Calendar">
+            <span class="rail-icon calendar-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="rail-stack rail-bottom">
+          <button class="rail-button" type="button" data-section="notifications" data-label="Notifications" aria-label="Notifications">
+            <span class="rail-icon notifications-icon" aria-hidden="true"></span>
+          </button>
+          <button class="rail-button" type="button" data-section="settings" data-label="Settings" aria-label="Settings">
+            <span class="rail-icon settings-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </aside>
+
+      <aside class="sidebar panel">
+        <div class="sidebar-top">
+          <div>
+            <p class="eyebrow">Workspace</p>
+            <h1 id="sectionHeading">Notes</h1>
+          </div>
+          <button id="newNoteButton" class="ghost">New Note</button>
+        </div>
+
+        <div class="quick-actions">
+          <button id="showRecentNotesButton" class="quick-button active">Recent Notes</button>
+          <button id="showDueWindowsButton" class="quick-button">Due Windows</button>
+        </div>
+
+        <section id="notesSidebar" class="sidebar-section-group">
+          <section class="sidebar-block">
+            <div class="section-row">
+              <h2>Portfolio</h2>
+              <button id="addPortfolioButton" class="icon-mini" type="button">+</button>
+            </div>
+            <ul id="portfolioList" class="filter-list"></ul>
+          </section>
+
+          <section class="sidebar-block">
+            <div class="section-row">
+              <h2>Markers</h2>
+              <button id="addMarkerButton" class="icon-mini" type="button">+</button>
+            </div>
+            <ul id="markerList" class="filter-list"></ul>
+          </section>
+
+          <section class="sidebar-block sidebar-notes-block">
+            <div class="section-row">
+              <h2>Notes</h2>
+              <span id="notesCounter" class="mini-count">0</span>
+            </div>
+            <ul id="notesList" class="notes-list"></ul>
+          </section>
+        </section>
+
+        <section id="tasksSidebar" class="sidebar-section-group hidden">
+          <section class="sidebar-block">
+            <div class="section-row">
+              <h2>Task Windows</h2>
+            </div>
+            <ul id="taskWindowList" class="filter-list"></ul>
+          </section>
+        </section>
+
+        <section id="calendarSidebar" class="sidebar-section-group hidden">
+          <section class="sidebar-block">
+            <div class="section-row">
+              <h2>Schedule Views</h2>
+            </div>
+            <ul id="calendarViewList" class="filter-list"></ul>
+          </section>
+        </section>
+
+        <section id="notificationsSidebar" class="sidebar-section-group hidden">
+          <section class="sidebar-block">
+            <div class="section-row">
+              <h2>Alerts</h2>
+            </div>
+            <p class="sidebar-copy">System notices and due task alerts appear here.</p>
+          </section>
+        </section>
+
+        <section id="settingsSidebar" class="sidebar-section-group hidden">
+          <section class="sidebar-block">
+            <div class="section-row">
+              <h2>Controls</h2>
+            </div>
+            <p class="sidebar-copy">App controls and data management live here.</p>
+          </section>
+        </section>
+      </aside>
+
+      <section class="main-workspace panel">
+        <section id="notesWorkspace" class="workspace-view active-view">
+          <div class="workspace-header">
+            <div>
+              <p class="eyebrow">Editor</p>
+              <h2>Active Note</h2>
+            </div>
+            <div class="actions">
+              <button id="saveNoteButton">Save Note</button>
+              <button id="analyzeButton" class="accent">Analyze For Tasks</button>
+            </div>
+          </div>
+
+          <div class="note-meta-bar">
+            <input id="noteTitle" type="text" placeholder="Untitled note" maxlength="80" />
+            <select id="portfolioSelect"></select>
+          </div>
+
+          <div class="marker-composer">
+            <div id="assignedMarkers" class="marker-chip-row"></div>
+            <div class="marker-actions">
+              <input id="markerInput" type="text" placeholder="Add marker" maxlength="30" />
+              <button id="addMarkerToNoteButton" class="ghost" type="button">Add Marker</button>
+            </div>
+          </div>
+
+          <textarea
+            id="noteBody"
+            placeholder="Write naturally. Example:&#10;- Need to send budget update by Friday&#10;- Remember to call contractor&#10;- Review onboarding doc"
+          ></textarea>
+          <p id="statusText" class="status-text">No note selected.</p>
+        </section>
+
+        <section id="todosWorkspace" class="workspace-view hidden">
+          <div class="workspace-header">
+            <div>
+              <p class="eyebrow">Tasks</p>
+              <h2>Task Board</h2>
+            </div>
+          </div>
+          <div id="taskBoard" class="task-board"></div>
+        </section>
+
+        <section id="calendarWorkspace" class="workspace-view hidden">
+          <div class="workspace-header">
+            <div>
+              <p class="eyebrow">Calendar</p>
+              <h2>Upcoming Schedule</h2>
+            </div>
+          </div>
+          <div id="calendarBoard" class="calendar-board"></div>
+        </section>
+
+        <section id="notificationsWorkspace" class="workspace-view hidden">
+          <div class="workspace-header">
+            <div>
+              <p class="eyebrow">Notifications</p>
+              <h2>What Needs Attention</h2>
+            </div>
+          </div>
+          <div id="notificationsBoard" class="stack-board"></div>
+        </section>
+
+        <section id="settingsWorkspace" class="workspace-view hidden">
+          <div class="workspace-header">
+            <div>
+              <p class="eyebrow">Settings</p>
+              <h2>Local Controls</h2>
+            </div>
+          </div>
+          <div class="settings-grid">
+            <button id="clearSuggestionsButton" class="ghost" type="button">Clear Suggested Tasks</button>
+            <button id="clearCompletedTasksButton" class="ghost" type="button">Clear Completed Tasks</button>
+            <button id="resetWorkspaceButton" class="ghost danger" type="button">Reset Local Workspace</button>
+          </div>
+        </section>
+      </section>
+
+      <aside class="detail-panel panel">
+        <section id="notesDetail" class="detail-view active-view">
+          <div class="section-row detail-header-row">
+            <h2>Suggested Tasks</h2>
+            <button id="addAllTasksButton" class="ghost">Add All</button>
+          </div>
+          <ul id="suggestedTasksList" class="task-list"></ul>
+
+          <div class="section-row detail-header-row second-detail-row">
+            <h2>Task Inbox</h2>
+            <span id="taskInboxCount" class="mini-count">0</span>
+          </div>
+          <ul id="savedTasksList" class="task-list"></ul>
+        </section>
+
+        <section id="todosDetail" class="detail-view hidden">
+          <div class="section-row detail-header-row">
+            <h2>Task Snapshot</h2>
+          </div>
+          <div id="taskSnapshot" class="summary-grid"></div>
+        </section>
+
+        <section id="calendarDetail" class="detail-view hidden">
+          <div class="section-row detail-header-row">
+            <h2>Due Windows</h2>
+          </div>
+          <div id="calendarSummary" class="summary-grid"></div>
+        </section>
+
+        <section id="notificationsDetail" class="detail-view hidden">
+          <div class="section-row detail-header-row">
+            <h2>Recent Activity</h2>
+          </div>
+          <div id="notificationsSummary" class="stack-board compact"></div>
+        </section>
+
+        <section id="settingsDetail" class="detail-view hidden">
+          <div class="section-row detail-header-row">
+            <h2>App State</h2>
+          </div>
+          <div id="settingsSummary" class="stack-board compact"></div>
+        </section>
+      </aside>
+    </main>
+
+    <script type="module" src="scripts/main.js"></script>
+  </body>
+</html>

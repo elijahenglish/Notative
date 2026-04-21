@@ -1,0 +1,118 @@
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at center, black, transparent 85%);
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.desktop-shell {
+  width: min(1460px, calc(100vw - 28px));
+  min-height: calc(100vh - 28px);
+  margin: 14px auto;
+  display: grid;
+  grid-template-columns: 68px 320px minmax(0, 1fr) 320px;
+  gap: 0;
+  overflow: visible;
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(20, 23, 31, 0.96), rgba(15, 17, 24, 0.96));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.desktop-shell.sidebar-hidden {
+  grid-template-columns: 68px minmax(0, 1fr) 320px;
+}
+
+.desktop-shell.sidebar-hidden .sidebar {
+  display: none;
+}
+
+.desktop-shell.detail-hidden {
+  grid-template-columns: 68px 320px minmax(0, 1fr);
+}
+
+.desktop-shell.detail-hidden .detail-panel {
+  display: none;
+}
+
+.desktop-shell.sidebar-hidden.detail-hidden {
+  grid-template-columns: 68px minmax(0, 1fr);
+}
+
+.panel {
+  background: var(--panel);
+  border: 0;
+  border-radius: 0;
+  backdrop-filter: blur(16px);
+  box-shadow: none;
+  animation: riseIn 240ms ease both;
+}
+
+@keyframes riseIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.sidebar,
+.main-workspace,
+.detail-panel {
+  padding: 18px;
+  min-height: calc(100vh - 28px);
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-right: 1px solid var(--panel-border);
+}
+
+.main-workspace,
+.detail-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-workspace {
+  border-right: 1px solid var(--panel-border);
+}
+
+.detail-panel {
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.workspace-view,
+.detail-view {
+  display: none;
+  flex: 1;
+  min-height: 0;
+}
+
+.workspace-view.active-view,
+.detail-view.active-view {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hidden {
+  display: none !important;
+}

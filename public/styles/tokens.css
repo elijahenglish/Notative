@@ -1,0 +1,82 @@
+:root {
+  --bg-top: #151821;
+  --bg-bottom: #0d1016;
+  --panel: rgba(21, 24, 33, 0.88);
+  --panel-strong: rgba(18, 20, 28, 0.95);
+  --panel-soft: rgba(255, 255, 255, 0.04);
+  --panel-border: rgba(255, 255, 255, 0.07);
+  --text: #f5f2eb;
+  --muted: #98959f;
+  --primary: #f2b84c;
+  --primary-strong: #e39e19;
+  --accent: #5b7cff;
+  --accent-soft: rgba(91, 124, 255, 0.18);
+  --danger: #d36a62;
+  --low: #586173;
+  --medium: #c2872d;
+  --high: #cb5346;
+  --success: #33c979;
+  --font-scale: 1;
+}
+
+body[data-theme="sand"] {
+  --bg-top: #efe4d5;
+  --bg-bottom: #ded6c8;
+  --panel: rgba(74, 61, 49, 0.82);
+  --panel-strong: rgba(60, 48, 38, 0.95);
+  --panel-soft: rgba(255, 255, 255, 0.06);
+  --panel-border: rgba(255, 244, 225, 0.12);
+  --text: #faf4ea;
+  --muted: #d5c6b0;
+  --primary: #f0b455;
+  --primary-strong: #d4972f;
+  --accent: #8497ff;
+  --accent-soft: rgba(132, 151, 255, 0.2);
+}
+
+body[data-font-scale="small"] {
+  --font-scale: 0.92;
+}
+
+body[data-font-scale="medium"] {
+  --font-scale: 1;
+}
+
+body[data-font-scale="large"] {
+  --font-scale: 1.08;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: calc(16px * var(--font-scale));
+  color: var(--text);
+  background: radial-gradient(circle at top left, rgba(242, 184, 76, 0.12), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(91, 124, 255, 0.18), transparent 32%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}

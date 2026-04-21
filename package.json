@@ -1,0 +1,22 @@
+{
+  "name": "notative",
+  "version": "1.0.0",
+  "description": "A note-taking app with AI task extraction",
+  "main": "electron/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "electron .",
+    "start": "electron .",
+    "web": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "openai": "^4.77.0"
+  },
+  "devDependencies": {
+    "electron": "^32.2.1",
+    "nodemon": "^3.1.7"
+  }
+}

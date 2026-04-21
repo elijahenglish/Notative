@@ -7,10 +7,10 @@
   --panel-border: rgba(255, 255, 255, 0.07);
   --text: #f5f2eb;
   --muted: #98959f;
-  --primary: #f2b84c;
-  --primary-strong: #e39e19;
-  --accent: #5b7cff;
-  --accent-soft: rgba(91, 124, 255, 0.18);
+  --primary: #4dc952;
+  --primary-strong: #2d9e38;
+  --accent: #7de858;
+  --accent-soft: rgba(77, 201, 82, 0.16);
   --danger: #d36a62;
   --low: #586173;
   --medium: #c2872d;
@@ -28,10 +28,10 @@ body[data-theme="sand"] {
   --panel-border: rgba(255, 244, 225, 0.12);
   --text: #faf4ea;
   --muted: #d5c6b0;
-  --primary: #f0b455;
-  --primary-strong: #d4972f;
-  --accent: #8497ff;
-  --accent-soft: rgba(132, 151, 255, 0.2);
+  --primary: #4dc952;
+  --primary-strong: #2d9e38;
+  --accent: #7de858;
+  --accent-soft: rgba(77, 201, 82, 0.18);
 }
 
 body[data-font-scale="small"] {
@@ -58,11 +58,11 @@ body {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Nunito", "Segoe UI", sans-serif;
   font-size: calc(16px * var(--font-scale));
   color: var(--text);
-  background: radial-gradient(circle at top left, rgba(242, 184, 76, 0.12), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(91, 124, 255, 0.18), transparent 32%),
+  background: radial-gradient(circle at top left, rgba(61, 184, 74, 0.10), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(22, 61, 30, 0.40), transparent 32%),
     linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
 }
 

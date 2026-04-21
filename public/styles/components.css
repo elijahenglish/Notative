@@ -47,33 +47,29 @@
 }
 
 .brand-mark {
-  background: linear-gradient(180deg, var(--primary), #b6770f);
-  color: #161821;
+  background: linear-gradient(160deg, #163d1e, #0a1f0d);
+  border-color: rgba(77, 201, 82, 0.18) !important;
+  box-shadow: 0 0 14px rgba(61, 184, 74, 0.18);
 }
 
 .app-logo-button {
   cursor: default;
+  width: 44px;
+  height: 48px;
+  border-radius: 16px;
 }
 
 .app-logo-button:hover {
   transform: none;
+  box-shadow: 0 0 20px rgba(61, 184, 74, 0.28);
 }
 
-.logo-placeholder {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid rgba(22, 24, 33, 0.8);
-  display: inline-block;
-  position: relative;
-}
-
-.logo-placeholder::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border-radius: 50%;
-  background: rgba(22, 24, 33, 0.75);
+.app-logo-img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 4px rgba(143, 229, 64, 0.35));
 }
 
 .rail-icon {
@@ -219,8 +215,8 @@ button:disabled {
 .quick-button.active,
 .filter-button.active {
   background: var(--accent-soft);
-  border-color: rgba(91, 124, 255, 0.38);
-  color: #e7ecff;
+  border-color: rgba(77, 201, 82, 0.36);
+  color: #d4f8c0;
 }
 
 .sidebar-section-group {
@@ -373,9 +369,9 @@ select {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(242, 184, 76, 0.12);
-  border: 1px solid rgba(242, 184, 76, 0.2);
-  color: #ffdc9d;
+  background: rgba(77, 201, 82, 0.12);
+  border: 1px solid rgba(77, 201, 82, 0.22);
+  color: #b8f5bc;
   padding: 7px 10px;
   border-radius: 999px;
   font-size: 0.84rem;
@@ -413,24 +409,25 @@ select {
 
 .accent {
   background: var(--accent);
-  color: white;
+  color: #0d2b10;
   border-radius: 12px;
   padding: 11px 15px;
 }
 
 .accent:hover {
-  background: #4564e5;
+  background: #5cc846;
 }
 
 #saveNoteButton {
   border-radius: 12px;
   padding: 11px 15px;
   background: var(--primary);
-  color: #111318;
+  color: #0a1f0d;
 }
 
 #saveNoteButton:hover {
   background: var(--primary-strong);
+  color: var(--text);
 }
 
 .task-item,

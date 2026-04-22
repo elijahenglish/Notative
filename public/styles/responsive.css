@@ -13,8 +13,8 @@
     border-top: 1px solid var(--panel-border);
     border-right: 0;
     border-top-right-radius: 0;
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .main-workspace {
@@ -31,7 +31,7 @@
   .desktop-shell.sidebar-hidden,
   .desktop-shell.detail-hidden,
   .desktop-shell.sidebar-hidden.detail-hidden {
-    width: min(100vw - 20px, 100%);
+    width: 100vw;
     grid-template-columns: 1fr;
     overflow: hidden;
   }
@@ -48,7 +48,7 @@
     padding: 10px;
     border-right: 0;
     border-bottom: 1px solid var(--panel-border);
-    border-top-right-radius: 24px;
+    border-top-right-radius: 0;
     border-bottom-left-radius: 0;
   }
 
@@ -71,8 +71,8 @@
   .detail-panel {
     border-bottom: 0;
     border-top-right-radius: 0;
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .quick-actions,

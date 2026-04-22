@@ -82,6 +82,12 @@ function createNewNote() {
 }
 
 function connectEvents() {
+  if (desktopApi?.minimizeWindow && desktopApi?.toggleWindowMaximize && desktopApi?.closeWindow) {
+    elements.buttons.windowMinimize?.addEventListener("click", () => desktopApi.minimizeWindow());
+    elements.buttons.windowMaximize?.addEventListener("click", () => desktopApi.toggleWindowMaximize());
+    elements.buttons.windowClose?.addEventListener("click", () => desktopApi.closeWindow());
+  }
+
   for (const button of elements.railButtons) {
     button.addEventListener("click", () => {
       store.setActiveSection(button.dataset.section);

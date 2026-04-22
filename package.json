@@ -1,13 +1,15 @@
 {
   "name": "notative",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "A note-taking app with AI task extraction",
   "main": "electron/main.js",
   "type": "commonjs",
   "scripts": {
     "dev": "electron .",
     "start": "electron .",
-    "web": "nodemon server.js"
+    "web": "nodemon server.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -17,6 +19,43 @@
   },
   "devDependencies": {
     "electron": "^32.2.1",
+    "electron-builder": "^24.13.3",
     "nodemon": "^3.1.7"
+  },
+  "build": {
+    "appId": "com.notative.app",
+    "productName": "Notative",
+    "files": [
+      "electron/**/*",
+      "public/**/*",
+      "assets/**/*",
+      "server.js",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "signAndEditExecutable": false,
+      "icon": "assets/notative.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Notative",
+      "installerIcon": "assets/notative.ico",
+      "uninstallerIcon": "assets/notative.ico"
+    }
   }
 }

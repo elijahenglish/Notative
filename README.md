@@ -2,6 +2,10 @@
 
 Notative is a lightweight note-taking app (similar to Notepad/Notion basics) with automatic task suggestion.
 
+## Version History
+
+- See `CHANGELOG.md` for release-by-release updates.
+
 ## Features
 
 - Run as a local desktop app on your PC (Electron)

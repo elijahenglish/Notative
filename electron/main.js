@@ -69,8 +69,7 @@ async function extractTasksWithAI(noteText) {
   if (!process.env.OPENAI_API_KEY) {
     return {
       source: "heuristic",
-      tasks: heuristicTaskExtraction(noteText),
-      warning: "OPENAI_API_KEY not set. Using local heuristic extraction."
+      tasks: heuristicTaskExtraction(noteText)
     };
   }
 
@@ -119,7 +118,10 @@ function createMainWindow() {
     minWidth: 980,
     minHeight: 680,
     autoHideMenuBar: true,
-    backgroundColor: "#f1e9de",
+    frame: false,
+    thickFrame: false,
+    roundedCorners: true,
+    backgroundColor: "#07090b",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,
@@ -145,6 +147,33 @@ ipcMain.handle("notative:extractTasks", async (_, inputText) => {
       error: "Task extraction failed.",
       details: "Check your API key/model settings or try again."
     };
+  }
+});
+
+ipcMain.on("notative:windowMinimize", (event) => {
+  const win = BrowserWindow.fromWebContents(event.sender);
+  if (win) {
+    win.minimize();
+  }
+});
+
+ipcMain.on("notative:windowToggleMaximize", (event) => {
+  const win = BrowserWindow.fromWebContents(event.sender);
+  if (!win) {
+    return;
+  }
+
+  if (win.isMaximized()) {
+    win.unmaximize();
+  } else {
+    win.maximize();
+  }
+});
+
+ipcMain.on("notative:windowClose", (event) => {
+  const win = BrowserWindow.fromWebContents(event.sender);
+  if (win) {
+    win.close();
   }
 });
 

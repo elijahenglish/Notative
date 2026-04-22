@@ -1,3 +1,59 @@
+.window-titlebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--titlebar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px 0 10px;
+  background: rgba(5, 6, 8, 0.97);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 100;
+  -webkit-app-region: drag;
+}
+
+.window-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(245, 242, 235, 0.9);
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.window-controls {
+  display: flex;
+  gap: 6px;
+  -webkit-app-region: no-drag;
+}
+
+.window-control-button {
+  width: 30px;
+  height: 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(245, 242, 235, 0.92);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1;
+  font-size: 0.8rem;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.window-control-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.close-control:hover {
+  background: rgba(203, 83, 70, 0.24);
+  border-color: rgba(203, 83, 70, 0.34);
+}
+
 .icon-rail {
   padding: 12px 10px;
   display: flex;
@@ -5,12 +61,13 @@
   justify-content: space-between;
   align-items: center;
   background: var(--panel-strong);
+  -webkit-app-region: no-drag;
   position: relative;
   z-index: 20;
   overflow: visible;
   border-right: 1px solid var(--panel-border);
-  border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .rail-stack {
@@ -32,6 +89,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  -webkit-app-region: no-drag;
   cursor: pointer;
   transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease;
 }
@@ -149,9 +207,9 @@
 .sidebar-top h1,
 .workspace-header h2 {
   margin-bottom: 0;
-  font-family: "Fraunces", serif;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-family: "Nunito", "Segoe UI", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.005em;
 }
 
 .sidebar-top h1 {

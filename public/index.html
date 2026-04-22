@@ -13,6 +13,20 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <header class="window-titlebar" aria-label="Window controls">
+      <div class="window-title">Notative</div>
+      <div class="window-controls" role="group" aria-label="Window buttons">
+        <button id="windowMinimizeButton" class="window-control-button" type="button" aria-label="Minimize">
+          <span aria-hidden="true">-</span>
+        </button>
+        <button id="windowMaximizeButton" class="window-control-button" type="button" aria-label="Maximize">
+          <span aria-hidden="true">[]</span>
+        </button>
+        <button id="windowCloseButton" class="window-control-button close-control" type="button" aria-label="Close">
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+    </header>
     <div class="ambient"></div>
     <main class="app-shell desktop-shell">
       <aside class="icon-rail panel">

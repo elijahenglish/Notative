@@ -1,121 +1,94 @@
 # Notative
 
-Notative is a lightweight note-taking app (similar to Notepad/Notion basics) with automatic task suggestion.
-
-## Version History
-
-- See `CHANGELOG.md` for release-by-release updates.
+Notative is a lightweight note-taking desktop app with automatic task suggestion powered by OpenAI (or a local heuristic fallback when no API key is configured).
 
 ## Features
 
-- Run as a local desktop app on your PC (Electron)
-- Create and save notes locally on your machine
+- Native Windows desktop app (Electron)
+- Create and save notes locally
 - Analyze note text to detect actionable tasks
-- Use OpenAI when API key is configured
+- OpenAI-backed extraction when API key is configured
 - Automatic local fallback extractor when no API key is set
-- Keep a personal task inbox from suggestions
+- Personal task inbox from suggestions
 
 ## Run Locally
 
 1. Install dependencies:
-   - PowerShell (one-session policy bypass):
-     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-   - Then install:
-     npm install
-2. (Optional) Configure AI:
-   - Copy `.env.example` to `.env`
-   - Add `OPENAI_API_KEY`
-3. Start the desktop app:
+   ```powershell
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   npm install
+   ```
+2. (Optional) Configure AI — copy `.env.example` to `.env` and add `OPENAI_API_KEY`
+3. Start the app:
+   ```
    npm run dev
-4. Notative opens in its own native window.
+   ```
 
-## Quick Start On Windows
+## Quick Start on Windows
 
-To launch the desktop app without typing commands:
+Double-click `Start-Notative.bat` — it will find Node.js, install dependencies if needed, and launch the app.
 
-1. Double-click `Start-Notative.bat`
-2. The script will:
-  - find Node.js
-  - install dependencies if needed
-  - launch the Electron desktop app
+---
 
-## Optional Web Mode
+# Changelog
 
-If you still want the browser version:
+All notable changes to this project are documented in this file.
 
-1. Start the web server:
-   npm run web
-2. Open:
-   http://localhost:3000
+## [1.0.6] - 2026-04-21
 
-## Project Structure
+### Added
+- Greyscale logo variant for future UI extensions.
 
-Renderer UI is now split so future theme, typography, and panel-layout controls can be added without reopening one large file.
+### Changed
+- Enabled rounded window corners for a more modern, polished appearance.
+- Deepened default dark-mode palette to pure charcoal and near-black surfaces for enhanced contrast.
+- Suppressed heuristic fallback notification to reduce UI noise when OpenAI API is unavailable.
 
-```text
-public/
-  index.html
-  styles.css
-  styles/
-    tokens.css
-    shell.css
-    components.css
-    responsive.css
-  scripts/
-    main.js
-    core/
-      constants.js
-      settings.js
-      store.js
-    ui/
-      elements.js
-      renderers.js
-    utils/
-      date.js
-      dom.js
+## [1.0.5] - 2026-04-21
 
-electron/
-  main.js
-  preload.js
-```
+### Changed
+- Retuned default dark mode from bluish tones to deeper charcoal and near-black surfaces.
+- Kept green accent colors intact for buttons, highlights, and brand identity.
+- Darkened shell and custom titlebar backgrounds to improve app-like dark-mode consistency.
 
-Why this split:
+## [1.0.4] - 2026-04-21
 
-- `scripts/core` owns app state, storage, and settings scaffolding.
-- `scripts/ui` owns DOM lookups and rendering.
-- `scripts/utils` holds shared helpers.
-- `styles/tokens.css` is the right place for themes and font scales.
-- `styles/shell.css` and `styles/components.css` separate layout from component styling.
+### Changed
+- Updated `Notes` and `Active Note` heading typography to use Nunito for consistency with the rest of the interface.
+- Removed the `New Note` button-specific heading override from the previous release.
 
-This structure is intended to support future user options for:
+## [1.0.3] - 2026-04-21
 
-- Showing and hiding panels
-- Reordering panel placement
-- Swapping themes
-- Changing font scale and visual density
+### Changed
+- Updated `New Note` button typography to use the same Fraunces heading style for visual consistency in the top row.
 
-## API
+## [1.0.2] - 2026-04-21
 
-### POST /api/extract-tasks
+### Added
+- Custom top title bar with dedicated minimize, maximize/restore, and close buttons for frameless mode.
 
-Request body:
+### Changed
+- Window dragging moved to a dedicated top drag region so movement is predictable.
+- Restored expected desktop-window behavior after frameless conversion.
 
-```json
-{ "text": "Your notes here" }
-```
+## [1.0.1] - 2026-04-21
 
-Response body:
+### Added
+- Custom Windows app icon sourced from `assets/notative.ico` for app, installer, and uninstaller builds.
+- Dedicated changelog tracking for ongoing release updates.
 
-```json
-{
-  "source": "openai",
-  "tasks": [
-    {
-      "title": "Send budget update",
-      "description": "Need to send budget update by Friday",
-      "priority": "high",
-      "sourceSnippet": "Need to send budget update by Friday"
-    }
-  ]
-}
-```
+### Changed
+- Window shell moved to a more app-like presentation with frameless behavior and draggable rail region.
+- Layout sizing updated to reduce page-level overflow and eliminate the outer right scrollbar.
+- Installer packaging flow updated so 1.0.1 can be installed as an in-place upgrade.
+
+## [1.0.0] - 2026-04-21
+
+### Added
+- Initial Electron desktop app release.
+- Notes editor with marker support and task extraction workflow.
+- OpenAI-backed task extraction with local heuristic fallback.
+- Windows packaging via `electron-builder` with NSIS installer output.
+
+### Changed
+- UI theme updated to a dark green brand direction with enlarged logo and rounded typography.

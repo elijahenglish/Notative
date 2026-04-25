@@ -88,6 +88,30 @@ function connectEvents() {
     elements.buttons.windowClose?.addEventListener("click", () => desktopApi.closeWindow());
   }
 
+  const syncDetailToggleState = () => {
+    const isExpanded = !elements.shell.classList.contains("detail-hidden");
+    const toggleButton = elements.buttons.toggleDetailPanel;
+    if (!toggleButton) {
+      return;
+    }
+
+    const icon = toggleButton.querySelector(".panel-toggle-icon");
+    if (icon) {
+      icon.textContent = isExpanded ? ">" : "<";
+    }
+
+    toggleButton.setAttribute("aria-expanded", String(isExpanded));
+    toggleButton.setAttribute("aria-label", isExpanded ? "Hide right panel" : "Show right panel");
+    toggleButton.title = isExpanded ? "Hide right panel" : "Show right panel";
+  };
+
+  elements.buttons.toggleDetailPanel?.addEventListener("click", () => {
+    elements.shell.classList.toggle("detail-hidden");
+    syncDetailToggleState();
+  });
+
+  syncDetailToggleState();
+
   for (const button of elements.railButtons) {
     button.addEventListener("click", () => {
       store.setActiveSection(button.dataset.section);

@@ -1,6 +1,6 @@
 {
   "name": "notative",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "A note-taking app with AI task extraction",
   "main": "electron/main.js",
   "type": "commonjs",
@@ -9,7 +9,7 @@
     "start": "electron .",
     "web": "nodemon server.js",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "npm run pack && node tools/patch-win-icon.mjs && electron-builder --prepackaged release/win-unpacked --win nsis"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -20,7 +20,8 @@
   "devDependencies": {
     "electron": "^32.2.1",
     "electron-builder": "^24.13.3",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "rcedit": "^5.0.2"
   },
   "build": {
     "appId": "com.notative.app",

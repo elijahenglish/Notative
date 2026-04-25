@@ -28,7 +28,7 @@
       </div>
     </header>
     <div class="ambient"></div>
-    <main class="app-shell desktop-shell">
+    <main class="app-shell desktop-shell detail-hidden">
       <aside class="icon-rail panel">
         <div class="rail-stack">
           <button class="rail-button brand-mark app-logo-button" type="button" data-label="Notative" aria-label="Notative">
@@ -132,6 +132,17 @@
       </aside>
 
       <section class="main-workspace panel">
+        <button
+          id="toggleDetailPanelButton"
+          class="panel-toggle"
+          type="button"
+          aria-label="Show right panel"
+          aria-expanded="false"
+          title="Show right panel"
+        >
+          <span class="panel-toggle-icon" aria-hidden="true">&lt;</span>
+        </button>
+
         <section id="notesWorkspace" class="workspace-view active-view">
           <div class="workspace-header">
             <div>

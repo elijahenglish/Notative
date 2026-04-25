@@ -37,6 +37,7 @@ export function getElements() {
       windowMinimize: document.getElementById("windowMinimizeButton"),
       windowMaximize: document.getElementById("windowMaximizeButton"),
       windowClose: document.getElementById("windowCloseButton"),
+      toggleDetailPanel: document.getElementById("toggleDetailPanelButton"),
       newNote: document.getElementById("newNoteButton"),
       showRecentNotes: document.getElementById("showRecentNotesButton"),
       showDueWindows: document.getElementById("showDueWindowsButton"),

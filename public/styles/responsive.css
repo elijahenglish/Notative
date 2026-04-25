@@ -1,6 +1,8 @@
 @media (max-width: 1260px) {
   .desktop-shell {
     grid-template-columns: 68px 280px minmax(0, 1fr);
+    width: calc(100vw - 10px);
+    margin: calc(var(--titlebar-height) + 5px) 5px 5px;
   }
 
   .desktop-shell.sidebar-hidden {
@@ -31,9 +33,11 @@
   .desktop-shell.sidebar-hidden,
   .desktop-shell.detail-hidden,
   .desktop-shell.sidebar-hidden.detail-hidden {
-    width: 100vw;
+    width: calc(100vw - 8px);
+    margin: calc(var(--titlebar-height) + 4px) 4px 4px;
     grid-template-columns: 1fr;
     overflow: hidden;
+    border-radius: 12px;
   }
 
   .icon-rail,
@@ -71,8 +75,13 @@
   .detail-panel {
     border-bottom: 0;
     border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  .panel-toggle {
+    right: 10px;
+    top: 10px;
   }
 
   .quick-actions,

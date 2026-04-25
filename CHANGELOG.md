@@ -2,6 +2,41 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.1.0] - 2026-04-21
+
+### Changed
+- Comprehensive sleek UI pass: reduced all button and card radii to sharp, flat-edge styling.
+- Sidebar blocks changed from bordered cards to hairline-separator sections for a minimal look.
+- Note items and filter buttons now borderless with only a background highlight on hover/active.
+- Active note item highlighted with a left accent bar instead of a border box.
+- Task/notice/calendar cards changed to left-stripe style with no enclosing border.
+- Marker chips, inputs, and textareas use tighter, flatter radii.
+- Priority pills flattened to small rectangular labels.
+- Save Note and Analyze buttons given tighter padding and consistent 6px radius.
+
+## [1.0.9] - 2026-04-21
+
+### Added
+- Collapsible right detail panel toggle in the editor layout, with default state set to collapsed.
+
+### Changed
+- Applied a sleek style pass by reducing bubble-heavy radii across cards, buttons, inputs, chips, and status pills.
+- Rounded the visible app shell and titlebar frame for a cleaner desktop-window presentation.
+- Enabled thicker frameless window frame handling so rounded window edges are preserved more consistently on Windows.
+
+## [1.0.8] - 2026-04-21
+
+### Changed
+- Kept Windows build compatibility and patched `Notative.exe` icon resource during packaging so the installed app/taskbar icon uses `assets/notative.ico`.
+- Kept explicit app/window icon wiring to ensure runtime taskbar identity stays consistent.
+- Updated the Windows dist pipeline to patch the icon automatically for future installer builds.
+
+## [1.0.7] - 2026-04-21
+
+### Changed
+- Set the Electron window icon explicitly to `assets/notative.ico` so Windows taskbar uses the Notative app icon.
+- Added a Windows `AppUserModelID` (`com.notative.app`) to improve taskbar identity and icon consistency.
+
 ## [1.0.6] - 2026-04-21
 
 ### Added

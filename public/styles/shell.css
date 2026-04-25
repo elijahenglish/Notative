@@ -14,18 +14,18 @@
 }
 
 .desktop-shell {
-  width: 100vw;
-  height: calc(100dvh - var(--titlebar-height));
-  min-height: calc(100dvh - var(--titlebar-height));
-  margin: var(--titlebar-height) 0 0;
+  width: calc(100vw - 12px);
+  height: calc(100dvh - var(--titlebar-height) - 12px);
+  min-height: calc(100dvh - var(--titlebar-height) - 12px);
+  margin: calc(var(--titlebar-height) + 6px) 6px 6px;
   display: grid;
   grid-template-columns: 68px 320px minmax(0, 1fr) 320px;
   gap: 0;
   overflow: hidden;
-  border: 0;
-  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
   background: linear-gradient(180deg, rgba(10, 12, 15, 0.99), rgba(5, 6, 9, 0.99));
-  box-shadow: none;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34);
 }
 
 .desktop-shell.sidebar-hidden {
@@ -97,8 +97,8 @@
 }
 
 .detail-panel {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .workspace-view,

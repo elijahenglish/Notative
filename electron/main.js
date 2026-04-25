@@ -5,6 +5,8 @@ const OpenAI = require("openai");
 
 dotenv.config({ path: path.join(__dirname, "..", ".env") });
 
+const appIconPath = path.join(__dirname, "..", "assets", "notative.ico");
+
 function scorePriority(text) {
   const t = text.toLowerCase();
   if (/\b(urgent|asap|immediately|today|deadline|overdue|critical)\b/.test(t)) {
@@ -119,9 +121,10 @@ function createMainWindow() {
     minHeight: 680,
     autoHideMenuBar: true,
     frame: false,
-    thickFrame: false,
+    thickFrame: true,
     roundedCorners: true,
     backgroundColor: "#07090b",
+    icon: appIconPath,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,
@@ -178,6 +181,10 @@ ipcMain.on("notative:windowClose", (event) => {
 });
 
 app.whenReady().then(() => {
+  if (process.platform === "win32") {
+    app.setAppUserModelId("com.notative.app");
+  }
+
   createMainWindow();
 
   app.on("activate", () => {
